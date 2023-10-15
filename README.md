@@ -1,27 +1,39 @@
-# React + TypeScript + Vite
+# Vehicle Fleet Frontend README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+¡Bienvenido al proyecto! Aquí encontrarás toda la información que necesitas para comenzar.
 
-Currently, two official plugins are available:
+## Configuración
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Variable de entorno
 
-## Expanding the ESLint configuration
+Asegúrate de configurar la variable de entorno `VITE_REACT_API_URL` en el archivo `.env`. Esta variable determina la URL de la API que tu aplicación React utilizará. Ejemplo:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```env
+VITE_REACT_API_URL=https://api.ejemplo.com
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Instalación de paquetes
+
+Antes de comenzar, necesitas restaurar los paquetes `node_modules`. Sigue estos pasos:
+
+1. Abre tu terminal y navega al directorio del proyecto.
+
+2. Ejecuta el siguiente comando para instalar todas las dependencias:
+
+```bash
+npm install
+```
+
+Este comando descargará e instalará todas las dependencias necesarias para el proyecto.
+
+## Ejecutar la aplicación
+
+Una vez que hayas configurado la variable de entorno y hayas instalado las dependencias, puedes ejecutar la aplicación. Utiliza el siguiente comando:
+
+```bash
+npm run dev
+```
+
+Esto iniciará el servidor de desarrollo y podrás ver tu aplicación.
+
+¡Y eso es todo! Ahora estás listo para comenzar a trabajar en tu proyecto React.
