@@ -9,7 +9,8 @@ import NotFound from '@/views/NotFound'
 const router = createBrowserRouter([
     {
         path: '/',
-        element: (<Home></Home>)
+        element: (<Home></Home>),
+        errorElement: <NotFound />,
     },
     {
         path: '/auth',
