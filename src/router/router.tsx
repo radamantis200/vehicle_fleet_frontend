@@ -1,16 +1,24 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Home from '@/views/Home'
-import AuthLayout from '@/layout/AuthLayout'
+import Layout from '@/layout/Layout';
 import Register from '@/views/Register'
-import Login from '@/views/Login'
 import NotFound from '@/views/NotFound'
-
+import Login from '@/views/Login'
+import AuthLayout from '@/layout/AuthLayout'
+import Home from '@/views/Home';
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: (<Home></Home>),
+        element: (
+            <Layout />
+        ),
         errorElement: <NotFound />,
+        children: [
+            {
+                index: true,
+                element: <Home/>
+            }
+        ]
     },
     {
         path: '/auth',
