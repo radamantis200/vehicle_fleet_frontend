@@ -1,8 +1,12 @@
+import useLayout from "@/hooks/useLayout";
+
 const Sidebar = () => {
+   const { isOpenSidebar } = useLayout()
+   const openSidebar = isOpenSidebar ? '' : 'hidden';
    return (
       <>
          <aside id="sidebar"
-            className="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full pt-16 font-normal duration-75 lg:flex transition-width"
+            className={`fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 ${openSidebar} w-64 h-full pt-16 font-normal duration-75 lg:flex transition-width`}
             aria-label="Sidebar">
             <div
                className="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
