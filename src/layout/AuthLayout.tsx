@@ -1,11 +1,17 @@
 import { Outlet } from "react-router-dom"
+import { LayoutProvider } from "@/context/LayoutProvider"
+
 const AuthLayout = () => {
     return (
-        <main className="max-w-4xl m-auto mt-10 md:mt-28 flex flex-col md:flex-row items-center">
-            <div className="p-10 w-full">
-                <Outlet />
-            </div>
-        </main>
+        <>
+            <LayoutProvider>
+                <main className="bg-gray-50 dark:bg-gray-900">
+                    <div className="flex flex-col items-center justify-center px-6 pt-8 mx-auto md:h-screen pt:mt-0 dark:bg-gray-900">
+                        <Outlet />
+                    </div>
+                </main>
+            </LayoutProvider>
+        </>
     )
 }
 
