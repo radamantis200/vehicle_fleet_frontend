@@ -1,3 +1,4 @@
+import formatDate from "@/helpers/data"
 import usePeople from "@/hooks/usePeople"
 
 const Home = () => {
@@ -121,7 +122,7 @@ const Home = () => {
                                                     {people.apellidos}</td>
                                                 <td
                                                     className="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {people.catGeneroPersona_codGeneroPerosna === 1 ? 'Masculino' : 'Femenino'}</td>
+                                                    {people.descripcionGenero}</td>
                                                 <td
                                                     className="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                                     {people.nacionalidad}
@@ -132,7 +133,7 @@ const Home = () => {
                                                 </td>
                                                 <td
                                                     className="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                    {people.fechaNacimiento}
+                                                    {formatDate(people.fechaNacimiento)}
                                                 </td>
                                                 <td
                                                     className="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">

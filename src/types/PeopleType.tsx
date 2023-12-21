@@ -4,9 +4,10 @@ export type PeopleType = {
 
 export type PersonType = {
     codPersona: number,
+    catGeneroPersona_codGeneroPerosna: number,
     nombres: string,
     apellidos: string,
-    catGeneroPersona_codGeneroPerosna: number,
+    descripcionGenero: string,
     nacionalidad: string,
     identificacion: string,
     fechaNacimiento: string,
