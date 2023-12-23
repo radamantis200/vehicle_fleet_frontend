@@ -15,3 +15,8 @@ export type PersonType = {
     correo: string,
     estado: boolean
 }
+
+export interface PersonDelete {
+    mensaje: string;
+    response: any[];
+}
