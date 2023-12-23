@@ -1,6 +1,6 @@
 import clientAxios from "@/http-common"
 import { PeopleType, PersonDelete } from "@/types/PeopleType"
-import { useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery } from "@tanstack/react-query"
 
 const usePeople = () => {
 
@@ -10,7 +10,7 @@ const usePeople = () => {
     }
 
     const deletePeopleQuery = async (id: number) => {
-        const { data } = await clientAxios.post<PersonDelete>('/Persona/Inactivar', { 'id': id })
+        const { data } = await clientAxios.post<PersonDelete>('/Persona/Inactivar', { 'codPersona': id })
         return data
     }
 
@@ -21,8 +21,13 @@ const usePeople = () => {
         staleTime: 5 * 60 * 1000
     })
 
+    const deleteQuery = useMutation({
+        mutationFn: deletePeopleQuery
+    })
+
     return {
-        peopleQuery
+        peopleQuery,
+        deleteQuery
     }
 }
 
