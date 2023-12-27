@@ -1,8 +1,9 @@
 import clientAxios from "@/http-common"
 import { PeopleType, PersonDelete } from "@/types/PeopleType"
-import { useMutation, useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 
 const usePeople = () => {
+    const queryClient = useQueryClient()
 
     const loadPeopleQuery = async () => {
         const { data } = await clientAxios.get<PeopleType>('/Persona/Lista')
@@ -22,7 +23,10 @@ const usePeople = () => {
     })
 
     const deleteQuery = useMutation({
-        mutationFn: deletePeopleQuery
+        mutationFn: deletePeopleQuery,
+        onSuccess: () => {
+            queryClient.resetQueries({ queryKey: ["peopleData"], exact: true })
+        }
     })
 
     return {
