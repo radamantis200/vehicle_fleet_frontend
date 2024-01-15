@@ -5,6 +5,7 @@ import Login from '@/views/Login'
 import AuthLayout from '@/layout/AuthLayout'
 import Home from '@/views/Home'
 import Branch from '@/views/Branch'
+import User from '@/views/User'
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: 'sucursales',
                 element: <Branch />,
+            },
+            {
+                path: 'usuarios',
+                element: <User />,
             },
         ],
     },
