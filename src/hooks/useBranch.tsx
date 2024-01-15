@@ -10,7 +10,7 @@ const useBranch = () => {
     }
 
     const branchQuery = useQuery({
-        queryKey: ['sucursalData'],
+        queryKey: ['branchesData'],
         queryFn: loadBranchQuery,
         refetchOnWindowFocus: false,
         staleTime: 5 * 60 * 1000

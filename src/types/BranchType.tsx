@@ -3,7 +3,7 @@ export interface BranchesType {
     response: BranchesType[];
 }
 
-export interface BranchesType {
+export interface BranchType {
     codSucursales: number;
     catCiudad_codCiudad: number;
     descripcion: string;
