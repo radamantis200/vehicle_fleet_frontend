@@ -1,6 +1,6 @@
 export interface BranchesType {
     mensaje: string;
-    response: BranchesType[];
+    response: BranchType[];
 }
 
 export interface BranchType {
