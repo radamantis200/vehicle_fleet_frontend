@@ -6,6 +6,7 @@ import AuthLayout from '@/layout/AuthLayout'
 import Home from '@/views/Home'
 import Branch from '@/views/Branch'
 import User from '@/views/User'
+import Vehicle from '@/views/Vehicle'
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
             {
                 path: 'usuarios',
                 element: <User />,
+            },
+            {
+                path: 'vehiculos',
+                element: <Vehicle />,
             },
         ],
     },
