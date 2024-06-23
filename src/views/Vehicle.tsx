@@ -99,8 +99,8 @@ const Vehicle = () => {
                                     </thead>
                                     <tbody
                                         className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                                        {isLoading || isFetching ? (<h2>Is Loading...</h2>) : (vehicle?.response && vehicle.response.map(vehicle =>
-                                            <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        {isLoading || isFetching ? (<tr><td><h2>Is Loading...</h2></td></tr>) : (vehicle?.response && vehicle.response.map(vehicle =>
+                                            <tr key={vehicle.codVehiculo} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                                                 <td className="w-4 p-4">
                                                     <div className="flex items-center">
                                                         <input id="checkbox-1" aria-describedby="checkbox-1" type="checkbox"
