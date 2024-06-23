@@ -109,8 +109,8 @@ const Home = () => {
                                     </thead>
                                     <tbody
                                         className="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                                        {isLoading || isFetching ? (<h2>Is Loading...</h2>) : (people?.response && people.response.map(people =>
-                                            <tr className="hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        {isLoading || isFetching ? (<tr><td><h2>Is Loading...</h2></td></tr>) : (people?.response && people.response.map(people =>
+                                            <tr key={people.codPersona} className="hover:bg-gray-100 dark:hover:bg-gray-700">
                                                 <td className="w-4 p-4">
                                                     <div className="flex items-center">
                                                         <input id="checkbox-1" aria-describedby="checkbox-1" type="checkbox"
@@ -183,10 +183,10 @@ const Home = () => {
                                             </tr>
                                         ))}
                                     </tbody>
-                                    <AddPeople />
-                                    <UpdatePeople />
-                                    <DeletePeople id={id} />
                                 </table>
+                                <AddPeople />
+                                <UpdatePeople />
+                                <DeletePeople id={id} />
                             </div>
                         </div>
                     </div>
