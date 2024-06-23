@@ -7,6 +7,8 @@ import SelectForm from '@/components/form/FormSelect'
 import FormTextArea from '@/components/form/FormTextArea';
 import moment from 'moment';
 import FormDatePicker from '@/components/form/FormDatePicker';
+import usePeople from '@/hooks/usePeople';
+import useModal from '@/hooks/useModal';
 
 const transformGenderData = (data: Gender[]): { value: number, label: string }[] => {
     return data.map(item => ({
@@ -18,6 +20,8 @@ const transformGenderData = (data: Gender[]): { value: number, label: string }[]
 const AddPeople = () => {
     const date = moment().format();
     const { genderQuery } = useGender()
+    const modal = useModal('#add-people');
+    const { addQuery } = usePeople()
     const { data: gender } = genderQuery;
 
     const genderOptions = gender ? transformGenderData(gender.response) : [];
@@ -28,7 +32,7 @@ const AddPeople = () => {
             apellidos: '',
             correo: '',
             nacionalidad: '',
-            catGeneroPersona_codGeneroPerosna: '',
+            catGeneroPersona_codGeneroPerosna: 1,
             identificacion: '',
             direccion: '',
             fechaNacimiento: date,
@@ -36,11 +40,14 @@ const AddPeople = () => {
         validationSchema: PeopleValidationSchema,
         onSubmit: (values) => {
             console.log(values);
+            addQuery.mutate(values)
+            modal?.hide()
+            formik.resetForm()
         },
     });
 
     return <>
-        <div id="add-people" tabIndex={-1} aria-hidden="true" className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div data-modal-backdrop="static" id="add-people" tabIndex={-1} aria-hidden="true" className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div className="relative p-4 w-full max-w-md max-h-full">
                 <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
 

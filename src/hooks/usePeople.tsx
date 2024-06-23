@@ -1,5 +1,5 @@
 import clientAxios from "@/http-common"
-import { PeopleType, PersonDelete } from "@/types/PeopleType"
+import { AddPerson, PeopleType, PersonDelete } from "@/types/PeopleType"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 
 const usePeople = () => {
@@ -10,6 +10,11 @@ const usePeople = () => {
         return data
     }
 
+    const addPeopleQuery = async (dataPost: AddPerson) => {
+        const { data } = await clientAxios.post<AddPerson>('/Persona/Guardar', dataPost)
+        return data
+    }
+    
     const deletePeopleQuery = async (id: number) => {
         const { data } = await clientAxios.post<PersonDelete>('/Persona/Inactivar', { 'codPersona': id })
         return data
@@ -29,9 +34,17 @@ const usePeople = () => {
         }
     })
 
+    const addQuery = useMutation({
+        mutationFn: addPeopleQuery,
+        onSuccess: () => {
+            queryClient.resetQueries({ queryKey: ["peopleData"], exact: true })
+        }
+    })
+
     return {
         peopleQuery,
-        deleteQuery
+        deleteQuery,
+        addQuery
     }
 }
 
